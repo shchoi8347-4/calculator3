@@ -19,12 +19,13 @@ pipeline {
 
           stage("Docker build") {
                steps {
-                    sh "docker build -t shchoi8347/calculator ."
+                    sh "docker build -t shchoi8347/calculator:1 ."
                }
           }
           stage("Docker push") {
                steps {
-                    sh "docker push shchoi8347/calculator"
+                    sh "docker login --username shchoi8347 --password Impact33!!"
+                    sh "docker push shchoi8347/calculator:1"
                }
           }
      }
