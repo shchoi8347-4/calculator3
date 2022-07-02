@@ -1,0 +1,3 @@
+$ git ls-tree HEAD
+$ git update-index --add --chmod=+x gradlew
+./gradlew clean build
