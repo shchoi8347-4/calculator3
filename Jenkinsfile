@@ -28,5 +28,10 @@ pipeline {
                     sh "docker push shchoi8347/calculator"
                }
           }
+	stage("Deploy to staging") {
+	     steps {
+	          sh "docker run -d --rm -p 8765:8080 --name calculator shchoi8347/calculator"
+    		 }
+	}
      }
 }
