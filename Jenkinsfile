@@ -33,5 +33,16 @@ pipeline {
 	          sh "docker run -d --rm -p 8765:8080 --name calculator shchoi8347/calculator"
     		 }
 	}
+          stage("Acceptance test") { 
+               steps { 
+                    sleep 60 
+                    sh "./gradlew acceptanceTest -Dcalculator.url=http://localhost:8765"
+               } 
+          }
+     }
+     post { 
+          always { 
+               sh "docker stop calculator" 
+          } 
      }
 }
