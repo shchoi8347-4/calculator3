@@ -30,7 +30,7 @@ pipeline {
           }
 	stage("Deploy to staging") {
 	     steps {
-	          sh "docker run -d --rm -p 8765:8080 --name calculator shchoi8347/calculator"
+	          sh "docker run -d --rm -p 8765:8080 --name calculator3 shchoi8347/calculator"
     		 }
 	}
           stage("Acceptance test") { 
@@ -42,7 +42,7 @@ pipeline {
      }
      post { 
           always { 
-               sh "docker stop calculator" 
+               sh "docker stop calculator3" 
           } 
      }
 }
