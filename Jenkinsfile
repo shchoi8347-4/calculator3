@@ -19,12 +19,12 @@ pipeline {
 
           stage("Docker build") {
                steps {
-                    sh "docker build -t <username>/calculator ."
+                    sh "docker build -t shchoi8347/calculator ."
                }
           }
           stage("Docker push") {
                steps {
-                    sh "docker push <username>/calculator"
+                    sh "docker push shchoi8347/calculator"
                }
           }
      }
