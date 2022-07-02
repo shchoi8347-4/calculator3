@@ -30,13 +30,13 @@ pipeline {
           }
 	stage("Deploy to staging") {
 	     steps {
-	          sh "docker run -d --rm -p 8765:8080 --name calculator3 shchoi8347/calculator"
+	          sh "docker run -d --rm -p 80:8080 --name calculator3 shchoi8347/calculator"
     		 }
 	}
           stage("Acceptance test") { 
                steps { 
                     sleep 5 
-                    sh "./gradlew acceptanceTest -Dcalculator.url=http://localhost:8765"
+                    sh "./gradlew acceptanceTest -Dcalculator.url=http://localhost:80"
                } 
           }
      }
